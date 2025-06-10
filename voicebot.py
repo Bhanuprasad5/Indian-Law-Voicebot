@@ -18,14 +18,10 @@ from langchain_core.prompts import (ChatPromptTemplate,
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-import os
+
 
 def initialize_chat_model():
-    
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-    
-    if not GROQ_API_KEY:
-        raise ValueError("❌ GROQ_API_KEY not found in environment variables.")
+    GROQ_API_KEY = "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"
 
     chat_model = ChatGroq(api_key=GROQ_API_KEY, model_name="llama3-8b-8192")
     return chat_model
@@ -122,7 +118,11 @@ def text_to_speech(Text):
     st.audio(speech_fp, format="audio/mp3")
 
 # Streamlit UI
-st.title("Hii I am Indian Law Buddy")
+st.title("Hi I am Indian Law Buddy")
+
+query = st.text_input("Enter your question:")
+
+
 
 
 # Record audio
@@ -145,16 +145,16 @@ if audio_bytes:
         audio_data = recognizer.record(source)
         
         try:
-            text = recognizer.recognize_google(audio_data)
+            query = recognizer.recognize_google(audio_data)
             st.success("📝 Transcribed Text:")
-            st.write(text)
+            st.write(query)
         except sr.UnknownValueError:
             st.error("Could not understand the audio.")
         except sr.RequestError:
             st.error("Could not request results, please check your internet connection.")
 
-    
-    response = get_bhanu_response(text, db, chain, memory)
+if query:
+    response = get_bhanu_response(query, db, chain, memory)
     st.write(response)
 
     text_to_speech(response)
