@@ -13,3 +13,4 @@ gtts
 pygame
 speechrecognition
 audio-recorder-streamlit
+protobuf==3.20.*
