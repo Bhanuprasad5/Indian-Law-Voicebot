@@ -24,7 +24,7 @@ A powerful voice-enabled assistant that helps users interact with Indian law thr
 | Text-to-Speech    | `gTTS` (Google Text-to-Speech)                        |
 | Vector DB         | Chroma with sentence-transformer embeddings           |
 | Containerization  | Docker                                                |
-| Deployment        | Hugging Face Spaces                                   |
+| Deployment        | Streamlit                                   |
 
 ---
 
