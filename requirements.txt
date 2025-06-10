@@ -1,14 +1,15 @@
 streamlit
-audio-recorder-streamlit
-gTTS
-pygame
-SpeechRecognition
-pyaudio ; platform_system != 'Windows'
 langchain
-langchain-community
 langchain-core
 langchain-groq
 langchain-huggingface
+langchain-community
 sentence-transformers
 chromadb
+numpy
 torch
+transformers
+gtts
+pygame
+speechrecognition
+audio-recorder-streamlit
